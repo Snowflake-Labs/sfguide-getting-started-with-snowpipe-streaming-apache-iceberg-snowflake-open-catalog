@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Main-Class:  RecordSimulatorClient
+Class-Path:  lib/VERSIONS.txt
+  lib/snowflake-ingest-sdk.jar
+  lib/slf4j-api-1.7.36.jar
+  lib/slf4j-simple-1.7.21.jar
+  lib/snowflake-jdbc-3.18.0.jar
+  lib/jaxb-api-2.2.11.jar
+  lib/zstd-jni-1.5.6-2.jar

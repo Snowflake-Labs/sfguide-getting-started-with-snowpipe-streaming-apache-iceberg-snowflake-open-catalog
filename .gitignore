@@ -1,0 +1,5 @@
+.DS_Store
+snowpipe-streaming-java/rsa_key.p8
+snowpipe-streaming-java/rsa_key.pub
+snowpipe-streaming-java/RecordSimulatorClient.jar
+.env
