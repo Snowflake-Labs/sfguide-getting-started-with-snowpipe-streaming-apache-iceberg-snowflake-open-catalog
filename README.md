@@ -34,6 +34,7 @@ Watch demo video on [YouTube](https://youtu.be/bq0YxaBsYnA?si=pKpeH2JcwcTF1IHa&t
 - From the Connections page
     - In the Principals tab, create three [service connections](https://other-docs.snowflake.com/en/opencatalog/configure-service-connection) named `spark_analyst`, `spark_engineer`, and `snowflake_engineer`
     - In the Roles tab, create three [principal roles](https://other-docs.snowflake.com/en/opencatalog/create-principal-role) named `spark_analyst_role` and `spark_engineer_role`, and `snowflake_engeineer_role`
+        - NOTE: Save the one-time information of CLIENT_ID and CLIENT_SECRET of `snowflake_engeineer_role` for creating catalog integration.
 - From the snowflake_catalog page, in the roles tab
     - Create three [catalog roles](https://other-docs.snowflake.com/en/opencatalog/create-catalog-role) named `table_all`,`table_reader_refined`, and `snowflake_catalog_role` with the following privileges
         - table_all:
@@ -67,7 +68,7 @@ Create and configure an external volume for Snowflake Dynamic Iceberg tables to 
   - [Create an IAM role](https://docs.snowflake.com/en/user-guide/tables-iceberg-configure-external-volume-s3#step-2-create-an-iam-role)
   - [Create external volume and Snowflake Open Catalog (Polaris) integrations](https://github.com/Snowflake-Labs/snowflake-build-2024-apache-iceberg-snowflake-open-catalog-demo/blob/main/external_vol_cat_integration_setup.sql)
 
-You may need to replace the following values with your own:
+You will need to replace the following values with your own:
 
 - External Volume
     - STORAGE_BASE_URL
@@ -76,6 +77,8 @@ You may need to replace the following values with your own:
     - CATALOG_URI
     - OAUTH_CLIENT_ID
     - OAUTH_CLIENT_SECRET
+
+NOTE: The OAUTH_CLIENT_ID and OAUTH_CLIENT_SECRET for creating the catalog integration are of the `snowflake_engineer_role` principal role.
 
 ### Step 3. Create Tables
 
@@ -92,15 +95,15 @@ If you choose to use different object names than the provided SQL, you may need 
 
 Use the following .csv files and load data into respective tables using [Snowsight](https://docs.snowflake.com/en/user-guide/data-load-web-ui#load-a-file-into-an-existing-table).
 
-- [VEHICLE_INFO](https://github.com/Snowflake-Labs/snowflake-build-2024-iceberg-catalog-demo/blob/main/polaris-iceberg-spark/VEHICLE_INFO.csv)
+- [VEHICLE_INFO](https://github.com/Snowflake-Labs/sfguide-getting-started-with-snowpipe-streaming-apache-iceberg-snowflake-open-catalog/blob/main/polaris-iceberg-spark/vehicle_info.csv)
 
-- **(Optional)** [STREAMING_VEHICLE_EVENTS](https://github.com/Snowflake-Labs/snowflake-build-2024-iceberg-catalog-demo/blob/main/polaris-iceberg-spark/STREAMING_VEHICLE_EVENTS.csv)
+- **(Optional)** [STREAMING_VEHICLE_EVENTS](https://github.com/Snowflake-Labs/sfguide-getting-started-with-snowpipe-streaming-apache-iceberg-snowflake-open-catalog/blob/main/polaris-iceberg-spark/STREAMING_VEHICLE_EVENTS.csv)
 
-- **(Optional)** [VEHICLE_EVENTS_SCD2](https://github.com/Snowflake-Labs/snowflake-build-2024-iceberg-catalog-demo/blob/main/polaris-iceberg-spark/VEHICLE_EVENTS_SCD2.csv)
+- **(Optional)** [VEHICLE_EVENTS_SCD2](sfguide-getting-started-with-snowpipe-streaming-apache-iceberg-snowflake-open-catalog/blob/main/polaris-iceberg-spark/VEHICLE_EVENTS_SCD2.csv)
 
-- **(Optional)** [VEHICLE_MODELS_EVENTS](https://github.com/Snowflake-Labs/snowflake-build-2024-iceberg-catalog-demo/blob/main/polaris-iceberg-spark/VEHICLE_MODELS_EVENTS.csv)
+- **(Optional)** [VEHICLE_MODELS_EVENTS](sfguide-getting-started-with-snowpipe-streaming-apache-iceberg-snowflake-open-catalog/blob/main/polaris-iceberg-spark/VEHICLE_MODELS_EVENTS.csv)
 
-- **(Optional)** [VEHICLE_MODELS_EVENTS_LAST_MAINTENANCE](https://github.com/Snowflake-Labs/snowflake-build-2024-iceberg-catalog-demo/blob/main/polaris-iceberg-spark/VEHICLE_MODELS_EVENTS_LAST_MAINTENANCE.csv)
+- **(Optional)** [VEHICLE_MODELS_EVENTS_LAST_MAINTENANCE](https://github.com/Snowflake-Labs/sfguide-getting-started-with-snowpipe-streaming-apache-iceberg-snowflake-open-catalog/blob/main/polaris-iceberg-spark/VEHICLE_MODELS_EVENTS_LAST_MAINTENANCE.csv)
 
 **NOTE**: *Data in STREAMING_VEHICLE_EVENTS will (also) be inserted via Snowpipe Streaming via Java SDK (see next section) and as that happens the data will (also) get populated in VEHICLE_EVENTS_SCD2, VEHICLE_MODELS_EVENTS, and VEHICLE_MODELS_EVENTS_LAST_MAINTENANCE Dynamic Iceberg tables.*
 
