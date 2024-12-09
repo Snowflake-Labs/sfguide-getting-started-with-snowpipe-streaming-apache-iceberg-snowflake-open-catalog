@@ -10,7 +10,8 @@
 -- )
 --  EXTERNAL_VOLUME = 'AWS_S3_EXT_VOLUME_SNOWFLAKE'
 --  CATALOG = 'SNOWFLAKE'
---  BASE_LOCATION = 'raw/vehicle_info/';
+--  BASE_LOCATION = 'raw/vehicle_info/'
+--  CATALOG_SYNC = 'polaris_external_cat_integration';
 
 -- create or replace ICEBERG TABLE DASH_DB.RAW.STREAMING_VEHICLE_EVENTS (
 -- 	VEHICLE_ID STRING,
@@ -32,7 +33,8 @@
 -- )
 --  EXTERNAL_VOLUME = 'AWS_S3_EXT_VOLUME_SNOWFLAKE'
 --  CATALOG = 'SNOWFLAKE'
---  BASE_LOCATION = 'raw/streaming_vehicle_events/';
+--  BASE_LOCATION = 'raw/streaming_vehicle_events/'
+--  CATALOG_SYNC = 'polaris_external_cat_integration';
 
 -- ========
 
