@@ -44,6 +44,10 @@
 -- 	EVENT_END_DATE,
 -- 	ENGINE_STATUS
 -- ) target_lag = '1 minute' refresh_mode = AUTO initialize = ON_CREATE warehouse = DASH_L
+--  EXTERNAL_VOLUME = 'aws_s3_ext_volume_snowflake'
+--  CATALOG = 'SNOWFLAKE'
+--  BASE_LOCATION = 'refined/vehicle_events_scd2/'
+--  CATALOG_SYNC = 'polaris_external_cat_integration'
 --  as
 --     SELECT
 --         vehicle_id,
@@ -66,6 +70,10 @@
 -- 	MAKE_YEAR,
 -- 	COLOR
 -- ) target_lag = '1 minute' refresh_mode = AUTO initialize = ON_CREATE warehouse = DASH_L
+--  EXTERNAL_VOLUME = 'aws_s3_ext_volume_snowflake'
+--  CATALOG = 'SNOWFLAKE'
+--  BASE_LOCATION = 'refined/vehicle_models_events/'
+--  CATALOG_SYNC = 'polaris_external_cat_integration'
 --  as
 --     SELECT
 --         e.*,
