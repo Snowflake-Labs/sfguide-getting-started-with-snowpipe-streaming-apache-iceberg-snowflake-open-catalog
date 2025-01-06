@@ -1,4 +1,4 @@
-# Apache Iceberg and Snowflake Open Catalog (Apache Polaris)
+# Apache Iceberg and Snowflake Open Catalog: Unlock Data Lake Interoperability with Apache Polaris
 
 ## Overview
 
