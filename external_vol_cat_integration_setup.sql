@@ -22,7 +22,7 @@ CREATE OR REPLACE CATALOG INTEGRATION polaris_external_cat_integration
     TABLE_FORMAT=ICEBERG 
     CATALOG_NAMESPACE='raw' 
     REST_CONFIG = (
-        CATALOG_URI ='https://<orgname>.<my-snowflake-open-catalog-account-name>.snowflakecomputing.com/polaris/api/catalog' 
+        CATALOG_URI ='https://<orgname>-<my-snowflake-open-catalog-account-name>.snowflakecomputing.com/polaris/api/catalog' 
         WAREHOUSE = 'snowflake_catalog'
     )
     REST_AUTHENTICATION = (
